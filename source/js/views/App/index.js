@@ -1,8 +1,11 @@
 import React from 'react';
+import FrontendRoutes from '../../routes/FrontendRoutes';
+import Header from '../../components/Global/Header';
 
 const App = () => (
-  <div>
-    <h1>App is running on port 3000</h1>
+  <div className='app'>
+    <Header />
+    <FrontendRoutes />
   </div>
 );
 

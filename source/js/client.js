@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { AppContainer } from 'react-hot-loader';
 import es6Promise from 'es6-promise';
 import 'babel-polyfill';
 import 'isomorphic-fetch';
 
-import App from './views/App/';
+import App from 'views/App';
 import '../scss/app.scss';
 
 es6Promise.polyfill();
 
 const render = Component => {
   ReactDOM.render(
-    <Component />,
+    <AppContainer>
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
+    </AppContainer>,
     document.getElementById('root')
   );
 };
