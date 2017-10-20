@@ -1,5 +1,6 @@
 import React from 'react';
-import FrontendRoutes from '../../routes/FrontendRoutes';
+
+import FrontendRoutes from '../../routes/';
 import Header from '../../components/Global/Header';
 
 const App = () => (

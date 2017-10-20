@@ -5,9 +5,9 @@ const Header = () => (
   <header>
     <nav className='main-navigation'>
       <ul>
-        <li><NavLink activeClassName='active' exact to='/'>Home</NavLink></li>
+        <li><NavLink activeClassName='active' exact to='/'>Dashboard</NavLink></li>
         <li><NavLink activeClassName='active' to='/help'>Help</NavLink></li>
-        <li><NavLink activeClassName='active' exact to='/dashboard'>Dashboard</NavLink></li>
+        <li><NavLink activeClassName='active' exact to='/create'>Create Expense</NavLink></li>
       </ul>
     </nav>
   </header>

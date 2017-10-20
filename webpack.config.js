@@ -1,15 +1,15 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const paths = require('./webpack/config').paths;
-const outputFiles = require('./webpack/config').outputFiles;
-const rules = require('./webpack/config').rules;
-const plugins = require('./webpack/config').plugins;
-const resolve = require('./webpack/config').resolve;
-const IS_PRODUCTION = require('./webpack/config').IS_PRODUCTION;
-const IS_DEVELOPMENT = require('./webpack/config').IS_DEVELOPMENT;
+const { paths } = require('./webpack/config');
+const { outputFiles } = require('./webpack/config');
+const { rules } = require('./webpack/config');
+const { plugins } = require('./webpack/config');
+const { resolve } = require('./webpack/config');
+const { IS_PRODUCTION } = require('./webpack/config');
+const { IS_DEVELOPMENT } = require('./webpack/config');
 
-const devServer = require('./webpack/dev-server').devServer;
+const { devServer } = require('./webpack/dev-server');
 
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,6 +18,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // Default client app entry file
 const entry = [
   path.join(paths.javascript, 'client.js'),
+  // path.join(__dirname, '/source/js/playground/redux-expensify.js'),
 ];
 
 plugins.push(
@@ -26,7 +27,7 @@ plugins.push(
     name: 'vendor',
     filename: outputFiles.vendor,
     minChunks(module) {
-      const context = module.context;
+      const { context } = module;
       return context && context.indexOf('node_modules') >= 0;
     },
   }),
