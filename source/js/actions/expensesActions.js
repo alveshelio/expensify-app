@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 
-import { ADD_EXPENSE, FETCH_EXPENSE, FETCH_EXPENSES, REMOVE_EXPENSE } from '../types/expensesTypes';
+import { ADD_EXPENSE, EDIT_EXPENSE, FETCH_EXPENSE, FETCH_EXPENSES, REMOVE_EXPENSE } from '../types/expensesTypes';
 
 export const addExpense = ({
   description,

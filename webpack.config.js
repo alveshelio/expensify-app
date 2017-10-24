@@ -18,7 +18,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // Default client app entry file
 const entry = [
   path.join(paths.javascript, 'client.js'),
-  // path.join(__dirname, '/source/js/playground/redux-expensify.js'),
+  // path.join(__dirname, '/source/js/playground/hoc.js'),
 ];
 
 plugins.push(

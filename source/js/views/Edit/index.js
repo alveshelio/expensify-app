@@ -1,10 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Edit = ({ match }) => (
-  <div>
-    <h1>Edit</h1>
-    <p>Editing expense ID: {match.params.id}</p>
-  </div>
-);
+import ExpenseForm from '../../components/expenses/forms/ExpenseForm';
+import { editExpense } from '../../actions/expensesActions';
 
-export default Edit;
+class Edit extends Component {
+  render() {
+    const { match, dispatch, expense, history } = this.props;
+    const expenseId = match.params.id;
+    return (
+      <div>
+        <h1>Edit</h1>
+        <p>Editing expense ID: {match.params.id}</p>
+        <ExpenseForm
+          onSubmit={expenseToEdit => {
+            dispatch(editExpense(expenseId, expenseToEdit));
+            history.push('/');
+          }}
+          expense={expense}
+        />
+      </div>
+    );
+  }
+}
+
+Edit.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  expense: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+    note: PropTypes.string,
+    createdAt: PropTypes.shape({}),
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+const mapsStateToProps = (state, { match }) => ({
+  expense: state.expenses.find(expense => expense.id === match.params.id),
+});
+
+export default connect(mapsStateToProps)(Edit);

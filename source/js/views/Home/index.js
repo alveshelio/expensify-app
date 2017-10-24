@@ -1,8 +1,11 @@
 import React from 'react';
+import ExpenseList from '../../components/expenses/ExpenseList';
+import ExpenseListFilters from '../../components/expenses/filters/ExpenseListFilters';
 
 const Home = () => (
   <div>
-    <p>App running on port 3000</p>
+    <ExpenseListFilters />
+    <ExpenseList />
   </div>
 );
 
