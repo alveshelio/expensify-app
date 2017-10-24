@@ -1,10 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Create = () => (
+import CreateExpenseForm from '../../components/expenses/forms/ExpenseForm';
+import { addExpense } from '../../actions/expensesActions';
+
+const CreateExpensePage = ({ dispatch, history }) => (
   <div>
     <h1>Create</h1>
-    <p>Dashboard Create expense</p>
+    <CreateExpenseForm
+      onSubmit={(expense) => {
+        dispatch(addExpense(expense));
+        history.push('/');
+      }}
+    />
   </div>
 );
 
-export default Create;
+CreateExpensePage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default connect()(CreateExpensePage);
