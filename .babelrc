@@ -5,7 +5,12 @@
     "syntax-decorators"
   ],
   "presets": [
-    ["es2015", { "modules": false }],
+    [
+      "es2015",
+      {
+        "modules": false
+      }
+    ],
     "stage-0",
     "react"
   ],
@@ -16,7 +21,16 @@
       ]
     },
     "production": {
-      "presets": ["react-optimize"]
+      "presets": [
+        "react-optimize"
+      ]
+    },
+    "test": {
+      "presets": [
+        "es2015",
+        "react",
+        "stage-0"
+      ]
     }
   }
 }
