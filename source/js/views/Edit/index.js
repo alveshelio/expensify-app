@@ -11,8 +11,7 @@ class Edit extends Component {
     const expenseId = match.params.id;
     return (
       <div>
-        <h1>Edit</h1>
-        <p>Editing expense ID: {match.params.id}</p>
+        <h2>Edit expense {expense.description}</h2>
         <ExpenseForm
           onSubmit={expenseToEdit => {
             dispatch(editExpense(expenseId, expenseToEdit));

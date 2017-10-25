@@ -4,15 +4,21 @@ import { connect } from 'react-redux';
 
 import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../../selectors/expensesSelectors';
+import { removeExpense } from '../../actions/expensesActions';
 
-const ExpenseList = (props) => {
-  const { expenses, filters } = props;
+const ExpenseList = ({ expenses, filters, dispatch }) => {
   return (
     <div>
       <h1>ExpenseList</h1>
       {
         expenses.length > 0 ?
-          expenses.map(expense => <ExpenseListItem key={expense.id} {...filters} {...expense} />) :
+          expenses.map(expense =>
+            (<ExpenseListItem
+              key={expense.id}
+              {...filters}
+              {...expense}
+              onRemoveHandle={id => dispatch(removeExpense(id))}
+            />)) :
           <p>You don&apos;t have any expenses yet</p>
       }
     </div>
@@ -24,8 +30,7 @@ ExpenseList.propTypes = {
     description: PropTypes.string.isRequired,
     amount: PropTypes.string.isRequired,
     note: PropTypes.string,
-    createdAt: PropTypes.shape({
-    }),
+    createdAt: PropTypes.shape({}),
   }).isRequired).isRequired,
   filters: PropTypes.shape({
     text: PropTypes.string,
@@ -33,6 +38,7 @@ ExpenseList.propTypes = {
     startDate: PropTypes.number,
     endDate: PropTypes.number,
   }),
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

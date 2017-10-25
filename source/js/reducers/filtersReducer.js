@@ -1,10 +1,12 @@
-import { SET_TEXT_FILTER, SET_START_DATE, SET_END_DATE, SORT_BY_AMOUNT, SORT_BY_DATE} from '../types/filtersTypes';
+import moment from 'moment';
+
+import { SET_TEXT_FILTER, SET_START_DATE, SET_END_DATE, SORT_BY_AMOUNT, SORT_BY_DATE } from '../types/filtersTypes';
 
 const filterReducerDefaultState = {
   text: '',
   sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined,
+  startDate: moment().startOf('month'),
+  endDate: moment().endOf('month'),
 };
 
 export default (state = filterReducerDefaultState, action) => {

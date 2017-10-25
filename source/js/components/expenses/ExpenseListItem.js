@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-import { removeExpense } from '../../actions/expensesActions';
 
 const ExpenseListItem = ({
   id,
@@ -11,19 +8,15 @@ const ExpenseListItem = ({
   amount,
   note,
   createdAt,
-  sortBy,
-  text,
-  dispatch,
-  history,
+  onRemoveHandle,
 }) => {
   return (
     <div className='expense-list-item'>
-      <span>Description: {description}</span>
+      <span><Link to={`/edit/${id}`}>{description}</Link></span>
       {note && <span>Note: {note}</span>}
       <span>Amount: {amount}</span>
       {createdAt && <span>Created On: {createdAt.format('MMM Do, YYYY')}</span>}
-      <button onClick={() => dispatch(removeExpense(id))}>Remove</button>
-      <Link to={`/edit/${id}`}>Edit</Link>
+      <button onClick={() => onRemoveHandle(id)}>Remove</button>
       <hr />
     </div>
   );
@@ -34,15 +27,8 @@ ExpenseListItem.propTypes = {
   description: PropTypes.string.isRequired,
   amount: PropTypes.string.isRequired,
   note: PropTypes.string,
-  createdAt: PropTypes.shape({
-
-  }),
-  sortBy: PropTypes.string,
-  text: PropTypes.string,
+  createdAt: PropTypes.shape({}),
+  onRemoveHandle: PropTypes.func.isRequired,
 };
 
-// const mapStateToProps = state => ({
-//   expenses: state.expenses,
-// });
-
-export default connect()(ExpenseListItem);
+export default ExpenseListItem;

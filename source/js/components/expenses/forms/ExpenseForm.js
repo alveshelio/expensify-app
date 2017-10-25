@@ -90,7 +90,6 @@ class CreateExpenseForm extends Component {
 
     return (
       <div>
-        <h1>CreateExpenseForm</h1>
         <form onSubmit={this.onSubmit}>
           <div>
             <label style={{ display: 'block' }} htmlFor='description'>Description</label>
@@ -125,7 +124,7 @@ class CreateExpenseForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor='calendar'>Created At:</label>
+            <label style={{ display: 'block' }} htmlFor='calendar'>Created On:</label>
             <SingleDatePicker
               onDateChange={this.onDateChange}
               onFocusChange={this.onFocusChange}
@@ -137,7 +136,7 @@ class CreateExpenseForm extends Component {
               id='calendar'
             />
           </div>
-          <button onClick={(e) => this.onSubmit(e)}>{this.props.expense ? 'Edit Expense' : 'Create Expense'}</button>
+          <button onClick={(e) => this.onSubmit(e)}>{this.props.expense ? 'Save Expense' : 'Create Expense'}</button>
         </form>
       </div>
     );
