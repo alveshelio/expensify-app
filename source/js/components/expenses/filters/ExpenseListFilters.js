@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
-import moment from 'moment';
 
 import { setTextFilter, sortByAmount, sortByDate, setFilterStartDate, setFilterEndDate } from '../../../actions/filtersActions';
 

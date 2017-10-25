@@ -31,4 +31,5 @@ ExpenseListItem.propTypes = {
   onRemoveHandle: PropTypes.func.isRequired,
 };
 
+
 export default ExpenseListItem;

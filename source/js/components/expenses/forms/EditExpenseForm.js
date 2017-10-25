@@ -5,20 +5,17 @@ import { SingleDatePicker } from 'react-dates';
 
 import 'react-dates/lib/css/_datepicker.css';
 
-class ExpenseForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {
-        description: props.expense ? props.expense.description : '',
-        amount: props.expense ? props.expense.amount : '',
-        note: props.expense ? props.expense.note : '',
-        createdAt: props.expense ? props.expense.createdAt : moment(),
-      },
-      calendarFocused: false,
-      errors: [],
-    };
-  }
+class EditExpenseForm extends Component {
+  state = {
+    data: {
+      description: '',
+      amount: '',
+      note: '',
+      createdAt: moment(),
+    },
+    calendarFocused: false,
+    errors: [],
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -90,6 +87,7 @@ class ExpenseForm extends Component {
 
     return (
       <div>
+        <h1>EditExpenseForm</h1>
         <form onSubmit={this.onSubmit}>
           <div>
             <label style={{ display: 'block' }} htmlFor='description'>Description</label>
@@ -124,7 +122,7 @@ class ExpenseForm extends Component {
             />
           </div>
           <div>
-            <label style={{ display: 'block' }} htmlFor='calendar'>Created On:</label>
+            <label htmlFor='calendar'>Created At:</label>
             <SingleDatePicker
               onDateChange={this.onDateChange}
               onFocusChange={this.onFocusChange}
@@ -136,22 +134,16 @@ class ExpenseForm extends Component {
               id='calendar'
             />
           </div>
-          <button onClick={(e) => this.onSubmit(e)}>{this.props.expense ? 'Save Expense' : 'Create Expense'}</button>
+          <button onClick={() => this.onSubmit()}>Create Expense</button>
         </form>
       </div>
     );
   }
 }
 
-ExpenseForm.propTypes = {
+EditExpenseForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  expense: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    amount: PropTypes.string.isRequired,
-    note: PropTypes.string,
-    createdAt: PropTypes.shape({}),
-  }),
 };
 
-export default ExpenseForm;
+export default EditExpenseForm;
+
