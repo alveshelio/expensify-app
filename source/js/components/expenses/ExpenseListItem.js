@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const ExpenseListItem = ({
   id,
@@ -14,8 +15,8 @@ const ExpenseListItem = ({
     <div className='expense-list-item'>
       <span><Link to={`/edit/${id}`}>{description}</Link></span>
       {note && <span>Note: {note}</span>}
-      <span>Amount: {amount}</span>
-      {createdAt && <span>Created On: {createdAt.format('MMM Do, YYYY')}</span>}
+      <span>Amount: {amount / 100}</span>
+      {createdAt && <span>Created On: {moment(createdAt).format('MMM Do, YYYY')}</span>}
       <button onClick={() => onRemoveHandle(id)}>Remove</button>
       <hr />
     </div>
@@ -25,9 +26,9 @@ const ExpenseListItem = ({
 ExpenseListItem.propTypes = {
   id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  amount: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
   note: PropTypes.string,
-  createdAt: PropTypes.shape({}),
+  createdAt: PropTypes.number.isRequired,
   onRemoveHandle: PropTypes.func.isRequired,
 };
 

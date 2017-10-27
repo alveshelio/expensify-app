@@ -19,18 +19,18 @@ es6Promise.polyfill();
 const store = configureStore();
 store.dispatch(addExpense({
   description: 'Rent',
-  amount: '100.00',
-  createdAt: moment().subtract(7, 'm'),
+  amount: 10000,
+  createdAt: moment().subtract(7, 'm').valueOf(),
 }));
 store.dispatch(addExpense({
   description: 'Coffee',
-  amount: '3.50',
-  createdAt: moment().subtract(14, 'd'),
+  amount: 350,
+  createdAt: moment().subtract(14, 'd').valueOf(),
 }));
 store.dispatch(addExpense({
   description: 'Car Payment',
-  amount: '500.00',
-  createdAt: moment().subtract(7, 'd'),
+  amount: 50000,
+  createdAt: moment().subtract(7, 'd').valueOf(),
 }));
 store.dispatch(setTextFilter('rent'));
 

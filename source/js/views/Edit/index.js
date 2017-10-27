@@ -34,7 +34,7 @@ Edit.propTypes = {
   expense: PropTypes.shape({
     id: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    amount: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
     note: PropTypes.string,
     createdAt: PropTypes.shape({}),
   }).isRequired,

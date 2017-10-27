@@ -6,7 +6,7 @@ import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../../selectors/expensesSelectors';
 import { removeExpense } from '../../actions/expensesActions';
 
-const ExpenseList = ({ expenses, filters, dispatch }) => {
+export const ExpenseList = ({ expenses, filters, dispatch }) => {
   return (
     <div>
       <h1>ExpenseList</h1>
@@ -28,9 +28,9 @@ const ExpenseList = ({ expenses, filters, dispatch }) => {
 ExpenseList.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string.isRequired,
-    amount: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
     note: PropTypes.string,
-    createdAt: PropTypes.shape({}),
+    createdAt: PropTypes.number.isRequired,
   }).isRequired).isRequired,
   filters: PropTypes.shape({
     text: PropTypes.string,
@@ -38,7 +38,7 @@ ExpenseList.propTypes = {
     startDate: PropTypes.number,
     endDate: PropTypes.number,
   }),
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

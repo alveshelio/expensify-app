@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseList with empty message 1`] = `
+<div>
+  <h1>
+    ExpenseList
+  </h1>
+  <p>
+    You don't have any expenses yet
+  </p>
+</div>
+`;
+
+exports[`should render ExpenseList with expenses 1`] = `
+<div>
+  <h1>
+    ExpenseList
+  </h1>
+  <ExpenseListItem
+    amount={4554}
+    createdAt={1507918207444}
+    description="Watter Bill"
+    id="1"
+    key="1"
+    note="The watter is expensive"
+    onRemoveHandle={[Function]}
+  />
+  <ExpenseListItem
+    amount={54554}
+    createdAt={1508609407444}
+    description="Rent"
+    id="2"
+    key="2"
+    note="January Rent"
+    onRemoveHandle={[Function]}
+  />
+  <ExpenseListItem
+    amount={154}
+    createdAt={1508955007444}
+    description="Gum"
+    id="3"
+    key="3"
+    note=""
+    onRemoveHandle={[Function]}
+  />
+</div>
+`;

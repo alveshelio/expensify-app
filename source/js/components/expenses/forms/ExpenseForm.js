@@ -22,10 +22,16 @@ class ExpenseForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    const { description, amount, note, createdAt } = this.state.data;
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      this.props.onSubmit(this.state.data);
+      this.props.onSubmit({
+        description,
+        amount: parseFloat(amount, 10) * 100,
+        note,
+        createdAt: createdAt.valueOf(),
+      });
       this.setState({ data: { description: '', amount: '', note: '', createdAt: moment() } });
     }
   };
@@ -148,9 +154,9 @@ ExpenseForm.propTypes = {
   expense: PropTypes.shape({
     id: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    amount: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
     note: PropTypes.string,
-    createdAt: PropTypes.shape({}),
+    createdAt: PropTypes.number.isRequired,
   }),
 };
 

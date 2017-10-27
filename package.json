@@ -21,7 +21,7 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "jest"
+    "test": "jest  --config=jest.config.json"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
@@ -40,6 +40,9 @@
     "concurrently": "^3.5.0",
     "cross-env": "^5.1.0",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
+    "enzyme-to-json": "^3.1.4",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
@@ -52,8 +55,10 @@
     "nodemon": "^1.12.1",
     "postcss-loader": "^2.0.8",
     "prepush": "^3.1.11",
+    "raf": "^3.4.0",
     "react-hot-loader": "^3.1.1",
     "react-svg-loader": "^2.1.0",
+    "react-test-renderer": "^16.0.0",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "sass-loader": "^6.0.6",

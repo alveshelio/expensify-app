@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render ExpenseListItem with an expense 1`] = `
+<div
+  className="expense-list-item"
+>
+  <span>
+    <Link
+      replace={false}
+      to="/edit/1"
+    >
+      Watter Bill
+    </Link>
+  </span>
+  <span>
+    Note: 
+    The watter is expensive
+  </span>
+  <span>
+    Amount: 
+    45.54
+  </span>
+  <span>
+    Created On: 
+    Oct 13th, 2017
+  </span>
+  <button
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+  <hr />
+</div>
+`;

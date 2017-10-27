@@ -5,15 +5,16 @@ import uuid from 'uuid';
 import { addExpense, editExpense, removeExpense } from '../../actions/expensesActions';
 import { REMOVE_EXPENSE, EDIT_EXPENSE, ADD_EXPENSE } from '../../types/expensesTypes';
 
+const expenseCreatedAt = moment().subtract(10, 'd').valueOf();
+
 test('it should set up add expense action object with values', () => {
   const expenseId = uuid();
-  const expenseCreatedAt = moment().format('MMM Do, YYYY');
   const expenseData = {
     id: expenseId,
     description: 'Watter Bill',
     amount: '45.54',
     note: 'The watter is expensive',
-    createdAt: expenseCreatedAt,
+    createdAt: undefined,
   };
   const action = addExpense(expenseData);
   expect(action).toEqual({
