@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Help = (props) => {
-  console.log('props', props);
+const Help = () => {
   return (
     <div>
       <h1>Help Page</h1>

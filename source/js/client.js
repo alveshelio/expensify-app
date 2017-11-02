@@ -8,6 +8,7 @@ import 'babel-polyfill';
 import 'isomorphic-fetch';
 import moment from 'moment';
 
+import 'react-dates/lib/css/_datepicker.css';
 import App from 'views/App';
 import configureStore from './store/configureStore';
 import { addExpense } from './actions/expensesActions';

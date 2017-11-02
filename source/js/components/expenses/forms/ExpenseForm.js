@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-import 'react-dates/lib/css/_datepicker.css';
-
 class ExpenseForm extends Component {
   constructor(props) {
     super(props);
@@ -13,10 +11,10 @@ class ExpenseForm extends Component {
         description: props.expense ? props.expense.description : '',
         amount: props.expense ? props.expense.amount : '',
         note: props.expense ? props.expense.note : '',
-        createdAt: props.expense ? props.expense.createdAt : moment(),
+        createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       },
       calendarFocused: false,
-      errors: [],
+      errors: {},
     };
   }
 
@@ -93,7 +91,6 @@ class ExpenseForm extends Component {
       createdAt,
     } = this.state.data;
     const { calendarFocused, errors } = this.state;
-
     return (
       <div>
         <form onSubmit={this.onSubmit}>

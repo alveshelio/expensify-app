@@ -22,7 +22,7 @@ exports[`it should render ExpenseListItem with an expense 1`] = `
   </span>
   <span>
     Created On: 
-    Oct 13th, 2017
+    Dec 17th, 1969
   </span>
   <button
     onClick={[Function]}
