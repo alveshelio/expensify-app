@@ -6,13 +6,10 @@ import { Provider } from 'react-redux';
 import es6Promise from 'es6-promise';
 import 'babel-polyfill';
 import 'isomorphic-fetch';
-import moment from 'moment';
 
 import 'react-dates/lib/css/_datepicker.css';
 import App from 'views/App';
 import configureStore from './store/configureStore';
-import { addExpense } from './actions/expensesActions';
-import { setTextFilter } from './actions/filtersActions';
 import '../scss/app.scss';
 
 es6Promise.polyfill();
