@@ -18,22 +18,6 @@ import '../scss/app.scss';
 es6Promise.polyfill();
 
 const store = configureStore();
-store.dispatch(addExpense({
-  description: 'Rent',
-  amount: 10000,
-  createdAt: moment().subtract(7, 'm').valueOf(),
-}));
-store.dispatch(addExpense({
-  description: 'Coffee',
-  amount: 350,
-  createdAt: moment().subtract(14, 'd').valueOf(),
-}));
-store.dispatch(addExpense({
-  description: 'Car Payment',
-  amount: 50000,
-  createdAt: moment().subtract(7, 'd').valueOf(),
-}));
-store.dispatch(setTextFilter('rent'));
 
 const render = Component => {
   ReactDOM.render(
