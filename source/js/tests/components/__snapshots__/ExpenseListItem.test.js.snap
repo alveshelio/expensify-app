@@ -18,7 +18,7 @@ exports[`it should render ExpenseListItem with an expense 1`] = `
   </span>
   <span>
     Amount: 
-    45.54
+    4554
   </span>
   <span>
     Created On: 

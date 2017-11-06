@@ -7,7 +7,7 @@ import { addExpense } from '../../actions/expensesActions';
 
 export class CreateExpensePage extends Component {
   onSubmit = (expense) => {
-    this.props.onSubmit(addExpense(expense));
+    this.props.onSubmit(expense);
     this.props.history.push('/');
   };
   render() {

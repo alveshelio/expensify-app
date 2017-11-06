@@ -15,7 +15,7 @@ const ExpenseListItem = ({
     <div className='expense-list-item'>
       <span><Link to={`/edit/${id}`}>{description}</Link></span>
       {note && <span>Note: {note}</span>}
-      <span>Amount: {amount / 100}</span>
+      <span>Amount: {amount}</span>
       {createdAt && <span>Created On: {moment(createdAt).format('MMM Do, YYYY')}</span>}
       <button onClick={() => onRemoveHandle(id)}>Remove</button>
       <hr />

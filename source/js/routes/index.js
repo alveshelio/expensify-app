@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from 'views/Home';
 import Help from 'views/Help';
 import Create from 'views/Create';
-import Edit from 'views/Edit';
+import EditCreatePage from 'views/Edit';
 import NotFound from 'views/NotFound';
 
 const publicPath = '/';
@@ -22,7 +22,7 @@ export default () => (
     <Route exact path={publicPath} component={Home} />
     <Route path={routeCodes.HELP} component={Help} />
     <Route path={routeCodes.CREATE} component={Create} />
-    <Route path={routeCodes.EDIT} component={Edit} />
+    <Route path={routeCodes.EDIT} component={EditCreatePage} />
     <Route path='*' component={NotFound} />
   </Switch>
 );

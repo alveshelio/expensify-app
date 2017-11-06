@@ -5,18 +5,23 @@ import { connect } from 'react-redux';
 import ExpenseForm from '../../components/expenses/forms/ExpenseForm';
 import { editExpense } from '../../actions/expensesActions';
 
-class Edit extends Component {
+export class EditExpensePage extends Component {
+  onSubmit = expenseToEdit => {
+    const expenseId = this.props.match.params.id;
+    // expenseToEdit is being passed in the ExpenseForm when we
+    // call onSubmit and pass the object from state
+    this.props.editExpense(expenseId, expenseToEdit);
+    this.props.history.push('/');
+  };
+
   render() {
-    const { match, dispatch, expense, history } = this.props;
-    const expenseId = match.params.id;
+    const { expense } = this.props;
+
     return (
       <div>
         <h2>Edit expense {expense.description}</h2>
         <ExpenseForm
-          onSubmit={expenseToEdit => {
-            dispatch(editExpense(expenseId, expenseToEdit));
-            history.push('/');
-          }}
+          onSubmit={this.onSubmit}
           expense={expense}
         />
       </div>
@@ -24,19 +29,19 @@ class Edit extends Component {
   }
 }
 
-Edit.propTypes = {
+EditExpensePage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
-  dispatch: PropTypes.func.isRequired,
+  editExpense: PropTypes.func.isRequired,
   expense: PropTypes.shape({
     id: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     amount: PropTypes.number.isRequired,
     note: PropTypes.string,
-    createdAt: PropTypes.shape({}),
+    createdAt: PropTypes.number,
   }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
@@ -47,4 +52,8 @@ const mapsStateToProps = (state, { match }) => ({
   expense: state.expenses.find(expense => expense.id === match.params.id),
 });
 
-export default connect(mapsStateToProps)(Edit);
+const mapDispatchToProps = dispatch => ({
+  editExpense: (expenseId, expenseToEdit) => dispatch(editExpense(expenseId, expenseToEdit)),
+});
+
+export default connect(mapsStateToProps, mapDispatchToProps)(EditExpensePage);

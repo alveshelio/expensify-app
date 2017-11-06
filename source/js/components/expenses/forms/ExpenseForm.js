@@ -26,7 +26,7 @@ class ExpenseForm extends Component {
     if (Object.keys(errors).length === 0) {
       this.props.onSubmit({
         description,
-        amount: parseFloat(amount, 10) * 100,
+        amount: parseFloat(amount, 10),
         note,
         createdAt: createdAt.valueOf(),
       });

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Edit Expense Page correctly 1`] = `
+<div>
+  <h2>
+    Edit expense 
+    Watter Bill
+  </h2>
+  <ExpenseForm
+    expense={
+      Object {
+        "amount": 4554,
+        "createdAt": -1209600000,
+        "description": "Watter Bill",
+        "id": "1",
+        "note": "The watter is expensive",
+      }
+    }
+    onSubmit={[Function]}
+  />
+</div>
+`;

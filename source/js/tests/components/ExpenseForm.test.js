@@ -72,7 +72,7 @@ test('should call onSubmit prop for valid form submission', () => {
   expect(wrapper.state('data').amount).toBe('');
   expect(onSubmitSpy).toHaveBeenLastCalledWith({
     description,
-    amount: amount * 100,
+    amount,
     note,
     createdAt,
   });
